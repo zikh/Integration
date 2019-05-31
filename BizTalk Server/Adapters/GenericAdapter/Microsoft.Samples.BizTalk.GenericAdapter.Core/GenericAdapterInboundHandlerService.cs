@@ -72,7 +72,7 @@ namespace Microsoft.Samples.BizTalk.GenericAdapter.Core
             return await Task.FromResult(false);
         }
 
-        public void ProcessRquestData(byte[] data, TaskCompletionSource<byte[]> responseRawDataAvailableTcs, TaskCompletionSource<object> responseSentTcs)
+        public void ProcessRquestData(byte[] data, TaskCompletionSource<Message> responseRawDataAvailableTcs, TaskCompletionSource<object> responseSentTcs)
         {
             var applicationMessage = _messageFactory.CreateApplicationMessage(data);
             IInboundReply reply = null;

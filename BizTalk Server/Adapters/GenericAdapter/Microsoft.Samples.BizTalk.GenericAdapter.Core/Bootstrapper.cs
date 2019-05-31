@@ -1,5 +1,5 @@
-﻿using Unity;
-using Unity.Interception;
+﻿using Microsoft.Practices.Unity.Configuration;
+using Unity;
 
 namespace Microsoft.Samples.BizTalk.GenericAdapter.Core
 {
@@ -9,8 +9,7 @@ namespace Microsoft.Samples.BizTalk.GenericAdapter.Core
         static Bootstrapper()
         {
             Container = new UnityContainer();
-            Container.AddExtension(new Diagnostic());
-            Container.AddNewExtension<Interception>();
+            Container.LoadConfiguration();
         }
     }
 }

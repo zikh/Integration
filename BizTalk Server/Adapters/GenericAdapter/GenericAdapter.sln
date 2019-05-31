@@ -7,7 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Samples.BizTalk.G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Samples.BizTalk.GenericAdapter.Contracts", "Microsoft.Samples.BizTalk.GenericAdapter.Contracts\Microsoft.Samples.BizTalk.GenericAdapter.Contracts.csproj", "{B127DFAB-9486-49A7-A08F-B8698C982DBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Samples.BizTalk.GenericAdapter.Utilities", "Microsoft.Samples.BizTalk.GenericAdapter.Utilities\Microsoft.Samples.BizTalk.GenericAdapter.Utilities.csproj", "{6594C780-B362-4199-9E7F-15C792BE0957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Samples.BizTalk.GenericAdapter.Utilities", "Microsoft.Samples.BizTalk.GenericAdapter.Utilities\Microsoft.Samples.BizTalk.GenericAdapter.Utilities.csproj", "{6594C780-B362-4199-9E7F-15C792BE0957}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Microsoft.Samples.BizTalk.GenericAdapter.Installer", "Microsoft.Samples.BizTalk.GenericAdapter.Installer\Microsoft.Samples.BizTalk.GenericAdapter.Installer.vdproj", "{A96C3CF1-0849-4182-B79D-95EFD70BF70B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Samples.BizTalk.GenericAdapter.Tcp", "Microsoft.Samples.BizTalk.GenericAdapter.Tcp\Microsoft.Samples.BizTalk.GenericAdapter.Tcp.csproj", "{550741E3-8616-45D6-B378-F51DC84B0E64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,12 @@ Global
 		{6594C780-B362-4199-9E7F-15C792BE0957}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6594C780-B362-4199-9E7F-15C792BE0957}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6594C780-B362-4199-9E7F-15C792BE0957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A96C3CF1-0849-4182-B79D-95EFD70BF70B}.Debug|Any CPU.ActiveCfg = Debug
+		{A96C3CF1-0849-4182-B79D-95EFD70BF70B}.Release|Any CPU.ActiveCfg = Release
+		{550741E3-8616-45D6-B378-F51DC84B0E64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{550741E3-8616-45D6-B378-F51DC84B0E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{550741E3-8616-45D6-B378-F51DC84B0E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{550741E3-8616-45D6-B378-F51DC84B0E64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

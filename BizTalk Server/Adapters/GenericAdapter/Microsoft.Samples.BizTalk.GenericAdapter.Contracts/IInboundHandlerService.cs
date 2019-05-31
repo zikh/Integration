@@ -11,6 +11,6 @@ namespace Microsoft.Samples.BizTalk.GenericAdapter.Contracts
         Task StopServerAsync(TimeSpan timeout);
         Task<Tuple<bool, Message, IInboundReply>> TryReceiveAsync(TimeSpan timeout);
         Task<bool> WaitForMessageAsync(TimeSpan timeout);
-        void ProcessRquestData(byte[] data, TaskCompletionSource<byte[]> responseRawDataAvailableTcs, TaskCompletionSource<object> responseSentTcs);
+        void ProcessRquestData(byte[] data, TaskCompletionSource<Message> responseRawDataAvailableTcs, TaskCompletionSource<object> responseSentTcs);
     }
 }

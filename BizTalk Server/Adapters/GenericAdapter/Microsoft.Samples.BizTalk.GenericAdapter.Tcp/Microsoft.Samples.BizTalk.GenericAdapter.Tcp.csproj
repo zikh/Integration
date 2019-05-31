@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5146085F-D5C5-4C5C-BD02-37F256E11614}</ProjectGuid>
+    <ProjectGuid>{550741E3-8616-45D6-B378-F51DC84B0E64}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Samples.BizTalk.GenericAdapter.Core</RootNamespace>
-    <AssemblyName>Microsoft.Samples.BizTalk.GenericAdapter.Core</AssemblyName>
+    <RootNamespace>Microsoft.Samples.BizTalk.GenericAdapter.Tcp</RootNamespace>
+    <AssemblyName>Microsoft.Samples.BizTalk.GenericAdapter.Tcp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,22 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ServiceModel.Channels, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files\WCF LOB Adapter SDK\Bin\Microsoft.ServiceModel.Channels.dll</HintPath>
+    <Reference Include="AsyncNet.Tcp, Version=1.2.5.0, Culture=neutral, PublicKeyToken=687dbd8d805f8d7c, processorArchitecture=MSIL">
+      <HintPath>..\packages\AsyncNet.Tcp.1.2.5\lib\net45\AsyncNet.Tcp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ServiceModel.Channels, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc, processorArchitecture=MSIL">
       <HintPath>..\packages\Polly.7.1.0\lib\netstandard2.0\Polly.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Remoting" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,9 +51,6 @@
     <Reference Include="Unity.Abstractions, Version=4.1.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.Abstractions.4.1.3\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Configuration, Version=5.10.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Configuration.5.10.0\lib\net47\Unity.Configuration.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Container, Version=5.10.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.Container.5.10.3\lib\net47\Unity.Container.dll</HintPath>
     </Reference>
@@ -68,44 +59,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="GenericAdapterApplicationMessageFactory.cs" />
-    <Compile Include="GenericAdapterInboundReplyFactory.cs" />
-    <Compile Include="GenericAdapter.cs" />
-    <Compile Include="GenericAdapterApplicationReply.cs" />
-    <Compile Include="GenericAdapterBinding.cs" />
-    <Compile Include="GenericAdapterBindingCollectionElement.cs" />
-    <Compile Include="GenericAdapterBindingElement.cs" />
-    <Compile Include="GenericAdapterBindingElementExtensionElement.cs" />
-    <Compile Include="GenericAdapterConnection.cs" />
-    <Compile Include="GenericAdapterConnectionFactory.cs" />
-    <Compile Include="GenericAdapterConnectionUri.cs" />
-    <Compile Include="GenericAdapterHandlerBase.cs" />
-    <Compile Include="GenericAdapterInboundHandler.cs" />
-    <Compile Include="GenericAdapterInboundHandlerService.cs" />
-    <Compile Include="GenericAdapterInboundQueue.cs" />
-    <Compile Include="GenericAdapterInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GenericAdapterMetadataBrowseHandler.cs" />
-    <Compile Include="GenericAdapterMetadataResolverHandler.cs" />
-    <Compile Include="GenericAdapterMetadataSearchHandler.cs" />
-    <Compile Include="GenericAdapterOutboundHandler.cs" />
-    <Compile Include="GenericAdapterOutboundHandlerService.cs" />
-    <Compile Include="GenericAdapterUtilities.cs" />
+    <Compile Include="IInboundServerConfiguration.cs" />
+    <Compile Include="IOutboundClientConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TcpExtension.cs" />
+    <Compile Include="TcpInboundServer.cs" />
+    <Compile Include="TcpInboundServerConfiguration.cs" />
+    <Compile Include="TcpOutboundClient.cs" />
+    <Compile Include="TcpOutboundClientConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Samples.BizTalk.GenericAdapter.Contracts\Microsoft.Samples.BizTalk.GenericAdapter.Contracts.csproj">
-      <Project>{B127DFAB-9486-49A7-A08F-B8698C982DBA}</Project>
+      <Project>{b127dfab-9486-49a7-a08f-b8698c982dba}</Project>
       <Name>Microsoft.Samples.BizTalk.GenericAdapter.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Samples.BizTalk.GenericAdapter.Core\Microsoft.Samples.BizTalk.GenericAdapter.Core.csproj">
+      <Project>{5146085f-d5c5-4c5c-bd02-37f256e11614}</Project>
+      <Name>Microsoft.Samples.BizTalk.GenericAdapter.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Microsoft.Samples.BizTalk.GenericAdapter.Utilities\Microsoft.Samples.BizTalk.GenericAdapter.Utilities.csproj">
-      <Project>{6594C780-B362-4199-9E7F-15C792BE0957}</Project>
+      <Project>{6594c780-b362-4199-9e7f-15c792be0957}</Project>
       <Name>Microsoft.Samples.BizTalk.GenericAdapter.Utilities</Name>
     </ProjectReference>
   </ItemGroup>

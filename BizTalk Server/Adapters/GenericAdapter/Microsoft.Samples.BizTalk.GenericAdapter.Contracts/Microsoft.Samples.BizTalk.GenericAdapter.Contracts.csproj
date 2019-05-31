@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationReply.cs" />
-    <Compile Include="IAdministrationServices.cs" />
     <Compile Include="IApplicationMessage.cs" />
     <Compile Include="IApplicationMessageFactory.cs" />
     <Compile Include="IInboundHandlerService.cs" />
